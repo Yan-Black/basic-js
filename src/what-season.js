@@ -1,4 +1,5 @@
 module.exports = function getSeason(date) {
+     
        if (!date) return 'Unable to determine the time of year!'
   else if (!date.getTime()) throw new Error
 

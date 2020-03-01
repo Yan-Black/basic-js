@@ -79,6 +79,8 @@ describe('Vigenere cipher', () => {
                 const testKey = createTestKey(i - i % 2);
                 const encrypted = reverseMachine.encrypt(reversedTestStr, testKey);
                 const reversedEncrypted = encrypted.split('').reverse().join('');
+                console.log(testStr,reversedTestStr,testKey,encrypted,reversedEncrypted);
+                
                 assert.equal(reverseMachine.decrypt(reversedEncrypted, testKey), testStr);
             }
         });

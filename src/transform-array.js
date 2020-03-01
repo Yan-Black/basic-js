@@ -1,5 +1,7 @@
 module.exports = function transform(arr) {
 
+                     /* Validation method. */
+                     
     let dsNext = '--discard-next',
         dsPrev = '--discard-prev',
         dbNext = '--double-next',
