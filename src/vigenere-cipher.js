@@ -1,5 +1,5 @@
 class VigenereCipheringMachine {
-    constructor(arg) {
+    constructor(direction) {
         this.tabulaRecta = [
             ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'],
             ['b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','a'],
@@ -28,10 +28,8 @@ class VigenereCipheringMachine {
             ['y','z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x'],
             ['z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y']
           ]
-        if(this.arg === false){
-          this.encrypt.arguments[0] = arguments[0].split('').reverse().join('')
-          this.decrypt.arguments[0] = arguments[0].split('').reverse().join('')
-        }
+
+        direction === false ? this.direction = 'reverse' : this.direction = 'direct'
     }
 
     encrypt(mess,key) {
@@ -98,7 +96,7 @@ class VigenereCipheringMachine {
           nbsp.indexOf(i) != -1 ? cipher.splice(i,0,' ') : cipher
         }
 
-        return cipher.join('').toUpperCase()
+        return this.direction === 'direct' ? cipher.join('').toUpperCase() : cipher.reverse('').join('').toUpperCase()
     }
 
     decrypt(code, key) {
@@ -158,7 +156,7 @@ class VigenereCipheringMachine {
           nbsp.indexOf(i) != -1 ? message.splice(i,0,' ') : message
         }
 
-        return message.join('').toUpperCase()
+        return this.direction === 'direct' ? message.join('').toUpperCase() : message.reverse().join('').toUpperCase()
     }
 }
 
